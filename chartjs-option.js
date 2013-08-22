@@ -5,9 +5,10 @@
 	load chartjs first before this menu to be work
 */
 
-function respChart(selector, data){
+function respChart(selector, data, options){
 
-	var options = {
+	// Define default option for line chart
+	var option = {
 		scaleOverlay : false,
 		scaleOverride : false,
 		scaleSteps : null,
@@ -36,6 +37,10 @@ function respChart(selector, data){
 		animationEasing : "easeOutQuart",
 		onAnimationComplete : null
 	}
+
+	if (options == false || options == null){
+		options = option;
+	} 
 
 	var ctx = selector.get(0).getContext("2d");
 	var container = $(selector).parent();
